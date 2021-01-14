@@ -13,7 +13,7 @@ module FormsLab
     end
 
     post '/pirates' do
-      
+      #### HERE ####
       @name = pirate["name"]
       @weight = pirate["weight"]
       @height = pirate["height"]
@@ -27,7 +27,7 @@ module FormsLab
       @ship2_booty = pirate[ships][][booty]
       @ship1 = Ship.new(@ship1_name, @ship1_type, @ship1_booty)
       @ship2 = Ship.new(@ship2_name, @ship2_type, @ship2_booty)
-      
+      #### HERE all ships so reference in show.erb ####
       @ships = Ship.all
       
       erb :'pirates/show'
