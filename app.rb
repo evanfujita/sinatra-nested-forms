@@ -14,22 +14,21 @@ module FormsLab
 
     post '/pirates' do
       
-      @name = params["pirate"]["name"]
-      @weight = params["pirate"]["weight"]
-      @height = params["pirate"]["height"]
+      @name = pirate["name"]
+      @weight = pirate["weight"]
+      @height = pirate["height"]
       @pirate = Pirate.new(@name, @weight, @height)
-      binding.pry
-      @ship1_name = params["pirate"]["ship_name_1"]
-      @ship1_type = params["pirate"]["ships"]["0"]["type"]
-      @ship1_booty = params["pirate"]["ships"]["0"]["booty"]
-      @ship2_name = params["pirate"]["ships"]["1"]["name"]
-      @ship2_type = params["pirate"]["ships"]["1"]["type"]
-      @ship2_booty = params["pirate"]["ships"]["1"]["booty"]
+     
+      @ship1_name = pirate[ships][][name]
+      @ship1_type = pirate[ships][][type]
+      @ship1_booty = pirate[ships][][booty]
+      @ship2_name = pirate[ships][][name]
+      @ship2_type = pirate[ships][][type]
+      @ship2_booty = pirate[ships][][booty]
       @ship1 = Ship.new(@ship1_name, @ship1_type, @ship1_booty)
       @ship2 = Ship.new(@ship2_name, @ship2_type, @ship2_booty)
       
-      @pirate.ship1 = ship1
-      @pirate.ship2 = ship2
+      @ships = Ship.all
       
       erb :'pirates/show'
     end
